@@ -2,12 +2,13 @@ from math import *
 
 a = 2.0
 b = 4.0
+eps = 0.0001
 
 def f(x):
     return 3*x - 4*log(x) - 5
 
 
-def chord_m(a,b, eps = 0.0001):
+def chord_m(a, b, eps):
 
     prevx = a
 
