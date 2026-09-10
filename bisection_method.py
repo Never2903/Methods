@@ -8,17 +8,16 @@ def f(x):
     return 3*x - 4*log(x) - 5
 
 def bisection(a, b, eps):
-    if f(a) * f(b) > 0:
+    if f(a) * f(b) > 0: #проверяем, имеет ли функция корень нв интервале
         return 'Корней нет'
-    while abs(b - a) > eps:
-        c = (a + b) / 2.0
-        if abs(f(c)) < eps:
+    while abs(b - a) > eps: #цикл выполняется, пока разница между концами отрезка больше заданной погрешности
+        c = (a + b) / 2.0 #счиатем центр
+        if abs(f(c)) < eps: #если модуль функции от середины меньше погрешности, то выводим центр
             return c
-        if f(a) * f(c) < 0:
-            b = c
+        if f(a) * f(c) < 0: #корень на интервале, сдвигаем границу
+            b = c 
         else:
-            a = c
+            a = c #если корень не на интервале, то сдвигаем границу
     return (a + b) / 2.0
 
-k = bisection(a, b, eps)
-print(k)
+print(bisection(a, b, eps))
